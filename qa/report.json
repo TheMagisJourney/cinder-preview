@@ -8,8 +8,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-desktop.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   },
   {
     "page": "dating",
@@ -20,8 +20,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-desktop.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   },
   {
     "page": "career",
@@ -32,8 +32,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-desktop.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   },
   {
     "page": "acting",
@@ -44,8 +44,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-desktop.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   },
   {
     "page": "portfolio",
@@ -56,56 +56,69 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-desktop.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   },
   {
     "page": "home",
     "vp": "mobile",
     "status": 200,
     "title": "Cinder - Dating",
-    "brokenImages": 0,
-    "brokenList": [],
+    "brokenImages": 3,
+    "brokenList": [
+      "https://cinder-preview-orpin.vercel.app/samples/career-after.jpg",
+      "https://cinder-preview-orpin.vercel.app/samples/acting-after.jpg",
+      "https://cinder-preview-orpin.vercel.app/samples/portfolio-after.jpg"
+    ],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-mobile.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 8
   },
   {
     "page": "dating",
     "vp": "mobile",
     "status": 200,
     "title": "Cinder - Dating",
-    "brokenImages": 0,
-    "brokenList": [],
+    "brokenImages": 3,
+    "brokenList": [
+      "https://cinder-preview-orpin.vercel.app/samples/career-after.jpg",
+      "https://cinder-preview-orpin.vercel.app/samples/acting-after.jpg",
+      "https://cinder-preview-orpin.vercel.app/samples/portfolio-after.jpg"
+    ],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-mobile.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 8
   },
   {
     "page": "career",
     "vp": "mobile",
     "status": 200,
     "title": "Cinder - Career",
-    "brokenImages": 0,
-    "brokenList": [],
+    "brokenImages": 2,
+    "brokenList": [
+      "https://cinder-preview-orpin.vercel.app/samples/acting-after.jpg",
+      "https://cinder-preview-orpin.vercel.app/samples/portfolio-after.jpg"
+    ],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-mobile.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 9
   },
   {
     "page": "acting",
     "vp": "mobile",
     "status": 200,
     "title": "Cinder - Acting",
-    "brokenImages": 0,
-    "brokenList": [],
+    "brokenImages": 1,
+    "brokenList": [
+      "https://cinder-preview-orpin.vercel.app/samples/portfolio-after.jpg"
+    ],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-mobile.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 10
   },
   {
     "page": "portfolio",
@@ -116,7 +129,7 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-mobile.png",
-    "imgCount": 5,
-    "facesLoaded": 5
+    "imgCount": 11,
+    "facesLoaded": 11
   }
 ]

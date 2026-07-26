@@ -12,6 +12,7 @@ const {
   door = 'dating',
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
 ---
 <!doctype html>
 <html lang="en">
@@ -38,16 +39,44 @@ const base = import.meta.env.BASE_URL;
           <span class="logo-mark" aria-hidden="true"></span>
           Cinder
         </a>
-        <a class="header-cta" href={`${base}#founding`}>Claim founding access</a>
+        <nav class="header-nav" aria-label="Primary" style="display:flex;align-items:center;gap:1rem">
+          <a href={`${base}#how`} style="text-decoration:none;font-size:0.86rem;color:var(--muted)">How it works</a>
+          <a href={`${base}#voices`} style="text-decoration:none;font-size:0.86rem;color:var(--muted)">Stories</a>
+          <a class="header-cta" href={`${base}#founding`}>Claim founding access</a>
+        </nav>
       </div>
     </header>
     <main>
       <slot />
     </main>
     <footer class="site-footer">
-      <div class="container inner">
-        <span>&copy; {new Date().getFullYear()} Cinder &middot; Still recognizably you.</span>
-        <span>Founding access &middot; Priority queue &middot; Locked founding price</span>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="logo" href={base}>
+              <span class="logo-mark" aria-hidden="true"></span>
+              Cinder
+            </a>
+            <p>Professional-grade photos from real photos of you. Still recognizably you.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href={`${base}dating/`}>Dating</a>
+            <a href={`${base}career/`}>Career</a>
+            <a href={`${base}acting/`}>Acting</a>
+            <a href={`${base}portfolio/`}>Portfolio</a>
+          </div>
+          <div class="footer-col">
+            <h4>Founding</h4>
+            <a href={`${base}#founding`}>Claim access</a>
+            <a href={`${base}#how`}>How it works</a>
+            <a href={`${base}#compare`}>Why Cinder</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; {year} Cinder</span>
+          <span>Founding access &middot; Priority queue &middot; Locked founding price</span>
+        </div>
       </div>
     </footer>
   </body>
