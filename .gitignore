@@ -10,3 +10,4 @@ deploy-files.json
 deploy-dist.json
 deploy-mcp.json
 deploy-slim.json
+.vercel
