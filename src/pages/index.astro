@@ -7,70 +7,68 @@ const active = DOORS[doorKey] || DOORS.dating;
 const doors = DOOR_ORDER.map((k) => DOORS[k]);
 const pageTitle = 'Cinder - ' + active.word;
 const doorJson = JSON.stringify(DOORS);
+const base = import.meta.env.BASE_URL;
 ---
 <Base door={active.id} title={pageTitle} description={active.sub}>
-  <section class="hero" id="top" aria-label="Hero">
-    <div class="hero-media" aria-hidden="true">
-      <div class="reveal-wipe">
-        <img class="before ken-burns" id="hero-before" src={active.before} alt="" width="900" height="1200" />
-        <img class="after ken-burns" id="hero-after" src={active.after} alt="" width="900" height="1200" fetchpriority="high" />
-      </div>
-      <span class="sample-chip">Sample</span>
-      <span class="ba-label before">Before</span>
-      <span class="ba-label after">After</span>
-    </div>
-    <div class="container hero-content">
-      <p class="eyebrow">AI photo studio &middot; founding access</p>
-      <h1 id="hero-promise">{active.promise}</h1>
-      <p class="hero-sub" id="hero-sub">{active.sub}</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" id="hero-cta" href="#founding">{active.cta}</a>
-        <a class="btn btn-ghost" href="#doors">Choose your use</a>
-      </div>
-      <p class="honesty">
-        These are sample results made with Cinder - not real customers yet. We will only show permissioned real photos when we have them.
-      </p>
-      {active.ethics ? (
-        <p class="ethics-line" id="ethics-line">
-          Cinder enhances light, framing, and presentation. It never invents a different face. You stay you.
+  <section class="studio" id="top" aria-label="Cinder studio">
+    <div class="container studio-grid">
+      <div class="studio-copy">
+        <p class="eyebrow">AI photo studio &middot; founding access</p>
+        <h1 id="hero-promise">{active.promise}</h1>
+        <p class="studio-sub" id="hero-sub">{active.sub}</p>
+        <div class="studio-actions">
+          <a class="btn btn-primary" id="hero-cta" href="#founding">{active.cta}</a>
+          <a class="btn btn-ghost" href="#founding">See founding terms</a>
+        </div>
+        <p class="honesty">
+          These are sample results made with Cinder - not real customers yet. We will only show permissioned real photos when we have them.
         </p>
-      ) : (
-        <p class="ethics-line" id="ethics-line" style="display:none"></p>
-      )}
-    </div>
-  </section>
+        {active.ethics ? (
+          <p class="ethics-line" id="ethics-line">
+            Cinder enhances light, framing, and presentation. It never invents a different face. You stay you.
+          </p>
+        ) : (
+          <p class="ethics-line" id="ethics-line" style="display:none"></p>
+        )}
 
-  <section class="doors" id="doors" aria-labelledby="doors-title">
-    <div class="container">
-      <p class="section-kicker">Four doors</p>
-      <h2 class="section-title" id="doors-title">Which one are you here for?</h2>
+        <p class="door-label" id="doors-label">I am here for</p>
+        <ul class="door-chips" role="list" aria-labelledby="doors-label">
+          {doors.map((d) => (
+            <li>
+              <button
+                type="button"
+                class="door-chip"
+                data-door={d.id}
+                aria-pressed={d.id === active.id ? 'true' : 'false'}
+              >
+                <span class="dot" aria-hidden="true"></span>
+                {d.word}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <noscript>
+          <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--bone-dim)">
+            <a href={`${base}dating/`}>Dating</a> &middot;
+            <a href={`${base}career/`}>Career</a> &middot;
+            <a href={`${base}acting/`}>Acting</a> &middot;
+            <a href={`${base}portfolio/`}>Portfolio</a>
+          </p>
+        </noscript>
+      </div>
 
-      <ul class="door-list" role="list">
-        {doors.map((d) => (
-          <li>
-            <button
-              type="button"
-              class="door-btn"
-              data-door={d.id}
-              aria-pressed={d.id === active.id ? 'true' : 'false'}
-            >
-              <span class="door-word">{d.word}</span>
-              <span class="door-meta">
-                <img class="door-thumb" src={d.after} alt="" width="52" height="68" loading="lazy" />
-                <span class="door-arrow" aria-hidden="true">-&gt;</span>
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
-      <noscript>
-        <p>
-          <a href={`${import.meta.env.BASE_URL}dating/`}>Dating</a> &middot;
-          <a href={`${import.meta.env.BASE_URL}career/`}>Career</a> &middot;
-          <a href={`${import.meta.env.BASE_URL}acting/`}>Acting</a> &middot;
-          <a href={`${import.meta.env.BASE_URL}portfolio/`}>Portfolio</a>
-        </p>
-      </noscript>
+      <div class="studio-stage" id="studio-stage" aria-live="polite">
+        <figure class="shot shot-before">
+          <img id="hero-before" src={active.before} alt="Sample before photo" width="900" height="1200" />
+          <figcaption class="shot-cap">Before</figcaption>
+        </figure>
+        <figure class="shot shot-after">
+          <img id="hero-after" src={active.after} alt="Sample after photo" width="900" height="1200" fetchpriority="high" />
+          <figcaption class="shot-cap">After</figcaption>
+          <span class="shot-sample">Sample</span>
+        </figure>
+        <p class="stage-note">Same person. Better light, framing, and presentation.</p>
+      </div>
     </div>
   </section>
 
@@ -97,15 +95,15 @@ const doorJson = JSON.stringify(DOORS);
       </div>
       <div class="proof-strip" aria-label="Sample proof strip">
         <figure class="proof-card">
-          <img src={`${import.meta.env.BASE_URL}samples/proof-1-after.jpg`} alt="Sample result one" loading="lazy" width="600" height="800" />
+          <img src={`${base}samples/proof-1-after.jpg`} alt="Sample result one" loading="lazy" width="600" height="800" />
           <span class="chip">Sample</span>
         </figure>
         <figure class="proof-card">
-          <img src={`${import.meta.env.BASE_URL}samples/proof-2-after.jpg`} alt="Sample result two" loading="lazy" width="600" height="800" />
+          <img src={`${base}samples/proof-2-after.jpg`} alt="Sample result two" loading="lazy" width="600" height="800" />
           <span class="chip">Sample</span>
         </figure>
         <figure class="proof-card">
-          <img src={`${import.meta.env.BASE_URL}samples/proof-3-after.jpg`} alt="Sample result three" loading="lazy" width="600" height="800" />
+          <img src={`${base}samples/proof-3-after.jpg`} alt="Sample result three" loading="lazy" width="600" height="800" />
           <span class="chip">Sample</span>
         </figure>
       </div>
@@ -136,7 +134,7 @@ const doorJson = JSON.stringify(DOORS);
       <form class="founding-form" id="founding-form" novalidate>
         <input type="hidden" name="door" id="form-door" value={active.id} />
         <div class="form-row">
-          <label for="email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Email</label>
+          <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Email</label>
           <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
           <button class="btn btn-primary" type="submit" id="submit-btn">{active.cta}</button>
         </div>
@@ -154,7 +152,7 @@ const doorJson = JSON.stringify(DOORS);
       var dataEl = document.getElementById('door-data');
       if (!dataEl) return;
       var DOORS = JSON.parse(dataEl.textContent);
-      var buttons = document.querySelectorAll('.door-btn[data-door]');
+      var chips = document.querySelectorAll('.door-chip[data-door]');
       var promiseEl = document.getElementById('hero-promise');
       var subEl = document.getElementById('hero-sub');
       var ctaEl = document.getElementById('hero-cta');
@@ -163,6 +161,7 @@ const doorJson = JSON.stringify(DOORS);
       var ethicsEl = document.getElementById('ethics-line');
       var formDoor = document.getElementById('form-door');
       var submitBtn = document.getElementById('submit-btn');
+      var shots = document.querySelectorAll('.shot');
 
       function setDoor(id) {
         var d = DOORS[id] || DOORS.dating;
@@ -171,9 +170,30 @@ const doorJson = JSON.stringify(DOORS);
         if (subEl) subEl.textContent = d.sub;
         if (ctaEl) ctaEl.textContent = d.cta;
         if (submitBtn) submitBtn.textContent = d.cta;
-        if (beforeEl) beforeEl.src = d.before;
-        if (afterEl) afterEl.src = d.after;
         if (formDoor) formDoor.value = d.id;
+
+        shots.forEach(function (s) { s.classList.add('is-swapping'); });
+        var imgLoaded = 0;
+        function maybeDone() {
+          imgLoaded += 1;
+          if (imgLoaded >= 2) {
+            shots.forEach(function (s) { s.classList.remove('is-swapping'); });
+          }
+        }
+        if (beforeEl) {
+          beforeEl.onload = maybeDone;
+          beforeEl.src = d.before;
+          if (beforeEl.complete) maybeDone();
+        }
+        if (afterEl) {
+          afterEl.onload = maybeDone;
+          afterEl.src = d.after;
+          if (afterEl.complete) maybeDone();
+        }
+        setTimeout(function () {
+          shots.forEach(function (s) { s.classList.remove('is-swapping'); });
+        }, 500);
+
         if (ethicsEl) {
           if (d.ethics) {
             ethicsEl.style.display = '';
@@ -182,7 +202,7 @@ const doorJson = JSON.stringify(DOORS);
             ethicsEl.style.display = 'none';
           }
         }
-        buttons.forEach(function (b) {
+        chips.forEach(function (b) {
           b.setAttribute('aria-pressed', b.getAttribute('data-door') === d.id ? 'true' : 'false');
         });
         try {
@@ -192,24 +212,11 @@ const doorJson = JSON.stringify(DOORS);
         } catch (e) {}
       }
 
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () { setDoor(btn.getAttribute('data-door')); });
+      chips.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setDoor(btn.getAttribute('data-door'));
+        });
       });
-
-      var stats = document.querySelectorAll('.stat');
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (en.isIntersecting) {
-              en.target.classList.add('in');
-              io.unobserve(en.target);
-            }
-          });
-        }, { threshold: 0.25 });
-        stats.forEach(function (s) { io.observe(s); });
-      } else {
-        stats.forEach(function (s) { s.classList.add('in'); });
-      }
 
       var form = document.getElementById('founding-form');
       var success = document.getElementById('form-success');
@@ -229,7 +236,7 @@ const doorJson = JSON.stringify(DOORS);
           } catch (err) {}
           if (success) success.classList.add('show');
           var subject = encodeURIComponent('Cinder founding access');
-          var body = encodeURIComponent('Please add me to Cinder founding access.\n\nEmail: ' + email + '\nDoor: ' + door + '\n\nI understand founding members get priority in the first render queue and founding price locked for life.');
+          var body = encodeURIComponent('Please add me to Cinder founding access.\n\nEmail: ' + email + '\nDoor: ' + door);
           window.location.href = 'mailto:aldrick@laudatedominum.miami?subject=' + subject + '&body=' + body;
         });
       }

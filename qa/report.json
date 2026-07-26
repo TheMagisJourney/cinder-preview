@@ -8,8 +8,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-desktop.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "dating",
@@ -20,8 +20,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-desktop.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "career",
@@ -32,8 +32,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-desktop.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "acting",
@@ -44,8 +44,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-desktop.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "portfolio",
@@ -56,8 +56,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-desktop.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "home",
@@ -68,8 +68,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-mobile.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "dating",
@@ -80,8 +80,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-mobile.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "career",
@@ -92,8 +92,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-mobile.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "acting",
@@ -104,8 +104,8 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-mobile.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   },
   {
     "page": "portfolio",
@@ -116,7 +116,7 @@
     "brokenList": [],
     "badSymbols": 0,
     "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-mobile.png",
-    "imgCount": 9,
-    "facesLoaded": 9
+    "imgCount": 5,
+    "facesLoaded": 5
   }
 ]
