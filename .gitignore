@@ -1,0 +1,7 @@
+node_modules
+.astro
+.vercel
+.env
+deploy-files.json
+deploy-dist.json
+.DS_Store

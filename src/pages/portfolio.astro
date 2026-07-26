@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import { DOORS, DOOR_ORDER } from '../data/doors.js';
+
+const active = DOORS['portfolio'];
+const doors = DOOR_ORDER.map((key) => DOORS[key]);
+const pageTitle = 'Cinder — ' + active.word;
+---
+<Base door={active.id} title={pageTitle} description={active.sub}>
+  <section class="hero" id="top" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true">
+      <div class="reveal-wipe">
+        <img class="before ken-burns" id="hero-before" src={active.before} alt="" width="1200" height="1600" />
+        <img class="after ken-burns" id="hero-after" src={active.after} alt="" width="1200" height="1600" fetchpriority="high" />
+      </div>
+      <span class="sample-chip">Sample</span>
+      <span class="ba-label before">Before</span>
+      <span class="ba-label after">After</span>
+    </div>
+    <div class="container hero-content">
+      <p class="eyebrow">AI photo studio · founding access</p>
+      <h1 id="hero-promise">{active.promise}</h1>
+      <p class="hero-sub" id="hero-sub">{active.sub}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="hero-cta" href="#founding">{active.cta}</a>
+        <a class="btn btn-ghost" href="#doors">Choose your use</a>
+      </div>
+      <p class="honesty">These are sample results made with Cinder — not real customers yet. We will only show permissioned real photos when we have them.</p>
+      {active.ethics && (
+        <p class="ethics-line" id="ethics-line">Cinder enhances light, framing, and presentation. It never invents a different face. You stay you.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="doors" id="doors">
+    <div class="container">
+      <p class="section-kicker">Four doors</p>
+      <h2 class="section-title">Which one are you here for?</h2>
+      <ul class="door-list">
+        {doors.map((d) => (
+          <li>
+            <a class="door-btn" href={'/' + d.id} style="text-decoration:none" aria-current={d.id === active.id ? 'page' : undefined}>
+              <span class="door-word">{d.word}</span>
+              <span class="door-meta">
+                <img class="door-thumb" src={d.after} alt="" width="52" height="68" loading="lazy" />
+                <span class="door-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="credibility" id="proof">
+    <div class="container">
+      <p class="section-kicker">Why the photo matters</p>
+      <h2 class="section-title">First impressions form fast. Quality shows.</h2>
+      <div class="stats">
+        <article class="stat in">
+          <div class="stat-value">~100ms</div>
+          <div class="stat-label">Time for a first impression of a face to form.</div>
+          <div class="stat-source">Willis and Todorov, Princeton · 2006</div>
+        </article>
+        <article class="stat in">
+          <div class="stat-value">Higher</div>
+          <div class="stat-label">Profiles with strong primary photos earn materially more engagement.</div>
+          <div class="stat-source">Industry photo-quality studies · problem-side</div>
+        </article>
+        <article class="stat in">
+          <div class="stat-value">You</div>
+          <div class="stat-label">Still recognizably you — better light, framing, presentation.</div>
+          <div class="stat-source">Cinder product promise</div>
+        </article>
+      </div>
+      <div class="proof-strip">
+        <figure class="proof-card"><img src="/samples/proof-1-after.jpg" alt="" loading="lazy" width="600" height="750" /><span class="chip">Sample</span></figure>
+        <figure class="proof-card"><img src="/samples/proof-2-after.jpg" alt="" loading="lazy" width="600" height="750" /><span class="chip">Sample</span></figure>
+        <figure class="proof-card"><img src="/samples/proof-3-after.jpg" alt="" loading="lazy" width="600" height="750" /><span class="chip">Sample</span></figure>
+      </div>
+      <p class="proof-note">Illustrative sample results. Real permissioned photos replace these after launch.</p>
+    </div>
+  </section>
+
+  <section class="founding-shape" id="stories">
+    <div class="container">
+      <div class="founding-panel">
+        <p class="section-kicker" style="color: var(--bone-dim)">Stories</p>
+        <h2 class="section-title" style="margin:0">Founding members shape what goes here.</h2>
+        <p>We are not inventing testimonials. Early members get priority in the first render queue — and the first real stories will be yours, with permission.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="founding">
+    <div class="container">
+      <p class="section-kicker">Founding access</p>
+      <h2 class="section-title">Get priority. Lock founding price for life.</h2>
+      <p class="cta-lead">Founding members receive priority in the first render queue and the founding price locked for life. Email only.</p>
+      <form class="founding-form" id="founding-form">
+        <input type="hidden" name="door" id="form-door" value={active.id} />
+        <div class="form-row">
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          <button class="btn btn-primary" type="submit">{active.cta}</button>
+        </div>
+        <p class="trust">Your photos stay yours. Never sold. Deleted on request.</p>
+        <div class="form-success" id="form-success" role="status">You are on the founding list. We will reach out when your priority window opens.</div>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.getElementById('founding-form')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('email').value.trim();
+      if (!email || email.indexOf('@') < 0) { document.getElementById('email').focus(); return; }
+      var door = document.getElementById('form-door').value || 'portfolio';
+      try {
+        var list = JSON.parse(localStorage.getItem('cinder_founders') || '[]');
+        list.push({ email: email, door: door, at: new Date().toISOString() });
+        localStorage.setItem('cinder_founders', JSON.stringify(list));
+      } catch (err) {}
+      document.getElementById('form-success').classList.add('show');
+      var subject = encodeURIComponent('Cinder founding access');
+      var body = encodeURIComponent('Please add me to Cinder founding access.\n\nEmail: ' + email + '\nDoor: ' + door);
+      window.location.href = 'mailto:aldrick@laudatedominum.miami?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</Base>

@@ -1,0 +1,257 @@
+---
+import Base from '../layouts/Base.astro';
+import { DOORS, DOOR_ORDER } from '../data/doors.js';
+
+const doorKey = Astro.url.searchParams.get('d') || 'dating';
+const active = DOORS[doorKey] || DOORS.dating;
+const doors = DOOR_ORDER.map((k) => DOORS[k]);
+const pageTitle = 'Cinder — ' + active.word;
+const doorJson = JSON.stringify(DOORS);
+---
+<Base door={active.id} title={pageTitle} description={active.sub}>
+  <section class="hero" id="top" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true">
+      <div class="reveal-wipe">
+        <img class="before ken-burns" id="hero-before" src={active.before} alt="" width="1200" height="1600" />
+        <img class="after ken-burns" id="hero-after" src={active.after} alt="" width="1200" height="1600" fetchpriority="high" />
+      </div>
+      <span class="sample-chip">Sample</span>
+      <span class="ba-label before">Before</span>
+      <span class="ba-label after">After</span>
+    </div>
+    <div class="container hero-content">
+      <p class="eyebrow">AI photo studio · founding access</p>
+      <h1 id="hero-promise">{active.promise}</h1>
+      <p class="hero-sub" id="hero-sub">{active.sub}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="hero-cta" href="#founding">{active.cta}</a>
+        <a class="btn btn-ghost" href="#doors">Choose your use</a>
+      </div>
+      <p class="honesty">
+        These are sample results made with Cinder — not real customers yet. We will only show permissioned real photos when we have them.
+      </p>
+      {active.ethics && (
+        <p class="ethics-line" id="ethics-line">
+          Cinder enhances light, framing, and presentation. It never invents a different face. You stay you.
+        </p>
+      )}
+      {!active.ethics && (
+        <p class="ethics-line" id="ethics-line" style="display:none"></p>
+      )}
+    </div>
+  </section>
+
+  <section class="doors" id="doors" aria-labelledby="doors-title">
+    <div class="container">
+      <p class="section-kicker">Four doors</p>
+      <h2 class="section-title" id="doors-title">Which one are you here for?</h2>
+      <ul class="door-list" role="list">
+        {doors.map((d) => (
+          <li>
+            <button
+              type="button"
+              class="door-btn"
+              data-door={d.id}
+              aria-pressed={d.id === active.id ? 'true' : 'false'}
+            >
+              <span class="door-word">{d.word}</span>
+              <span class="door-meta">
+                <img class="door-thumb" src={d.after} alt="" width="52" height="68" loading="lazy" />
+                <span class="door-arrow" aria-hidden="true">→</span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <noscript>
+        <p>
+          <a href="/dating">Dating</a> ·
+          <a href="/career">Career</a> ·
+          <a href="/acting">Acting</a> ·
+          <a href="/portfolio">Portfolio</a>
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+  <section class="credibility" id="proof" aria-labelledby="proof-title">
+    <div class="container">
+      <p class="section-kicker">Why the photo matters</p>
+      <h2 class="section-title" id="proof-title">First impressions form fast. Quality shows.</h2>
+      <div class="stats">
+        <article class="stat">
+          <div class="stat-value">~100ms</div>
+          <div class="stat-label">Time for a first impression of a face to form.</div>
+          <div class="stat-source">Willis and Todorov, Princeton · 2006</div>
+        </article>
+        <article class="stat">
+          <div class="stat-value">Higher</div>
+          <div class="stat-label">Profiles with strong primary photos earn materially more engagement across dating and professional platforms.</div>
+          <div class="stat-source">Industry photo-quality studies · problem-side</div>
+        </article>
+        <article class="stat">
+          <div class="stat-value">You</div>
+          <div class="stat-label">Still recognizably you — better light, framing, and presentation. Not a stranger.</div>
+          <div class="stat-source">Cinder product promise</div>
+        </article>
+      </div>
+      <div class="proof-strip" aria-label="Sample proof strip">
+        <figure class="proof-card">
+          <img src="/samples/proof-1-after.jpg" alt="Sample result one" loading="lazy" width="600" height="750" />
+          <span class="chip">Sample</span>
+        </figure>
+        <figure class="proof-card">
+          <img src="/samples/proof-2-after.jpg" alt="Sample result two" loading="lazy" width="600" height="750" />
+          <span class="chip">Sample</span>
+        </figure>
+        <figure class="proof-card">
+          <img src="/samples/proof-3-after.jpg" alt="Sample result three" loading="lazy" width="600" height="750" />
+          <span class="chip">Sample</span>
+        </figure>
+      </div>
+      <p class="proof-note">Illustrative sample results. Real, permissioned customer photos replace these after launch.</p>
+    </div>
+  </section>
+
+  <section class="founding-shape" id="stories" aria-labelledby="stories-title">
+    <div class="container">
+      <div class="founding-panel">
+        <p class="section-kicker" style="color: var(--bone-dim)">Stories</p>
+        <h2 class="section-title" id="stories-title" style="margin-bottom:0">Founding members shape what goes here.</h2>
+        <p>
+          We are not inventing testimonials. Early members get priority in the first render queue — and the first real stories on this page will be yours, with permission.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="founding" aria-labelledby="founding-title">
+    <div class="container">
+      <p class="section-kicker">Founding access</p>
+      <h2 class="section-title" id="founding-title">Get priority. Lock founding price for life.</h2>
+      <p class="cta-lead">
+        Founding members receive priority in the first render queue and the founding price locked for life.
+        Email only — no spam theater, no fake countdown.
+      </p>
+      <form class="founding-form" id="founding-form" novalidate>
+        <input type="hidden" name="door" id="form-door" value={active.id} />
+        <div class="form-row">
+          <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          <button class="btn btn-primary" type="submit" id="submit-btn">{active.cta}</button>
+        </div>
+        <p class="trust">Your photos stay yours. Never sold. Deleted on request.</p>
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          You are on the founding list. We will reach out when your priority window opens.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script id="door-data" type="application/json" set:html={doorJson} />
+
+  <script is:inline>
+    (function () {
+      var dataEl = document.getElementById('door-data');
+      if (!dataEl) return;
+      var DOORS = JSON.parse(dataEl.textContent);
+      var buttons = document.querySelectorAll('.door-btn[data-door]');
+      var promiseEl = document.getElementById('hero-promise');
+      var subEl = document.getElementById('hero-sub');
+      var ctaEl = document.getElementById('hero-cta');
+      var beforeEl = document.getElementById('hero-before');
+      var afterEl = document.getElementById('hero-after');
+      var ethicsEl = document.getElementById('ethics-line');
+      var formDoor = document.getElementById('form-door');
+      var submitBtn = document.getElementById('submit-btn');
+
+      function setDoor(id) {
+        var d = DOORS[id] || DOORS.dating;
+        document.body.dataset.door = d.id;
+        if (promiseEl) promiseEl.textContent = d.promise;
+        if (subEl) subEl.textContent = d.sub;
+        if (ctaEl) ctaEl.textContent = d.cta;
+        if (submitBtn) submitBtn.textContent = d.cta;
+        if (beforeEl) beforeEl.src = d.before;
+        if (afterEl) afterEl.src = d.after;
+        if (formDoor) formDoor.value = d.id;
+        if (ethicsEl) {
+          if (d.ethics) {
+            ethicsEl.style.display = '';
+            ethicsEl.textContent = 'Cinder enhances light, framing, and presentation. It never invents a different face. You stay you.';
+          } else {
+            ethicsEl.style.display = 'none';
+          }
+        }
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-door') === d.id ? 'true' : 'false');
+        });
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('d', d.id);
+          history.replaceState({}, '', url);
+        } catch (e) {}
+        if (afterEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          afterEl.style.animation = 'none';
+          void afterEl.offsetWidth;
+          afterEl.style.animation = '';
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setDoor(btn.getAttribute('data-door')); });
+      });
+
+      var stats = document.querySelectorAll('.stat');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add('in');
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.25 });
+        stats.forEach(function (s) { io.observe(s); });
+      } else {
+        stats.forEach(function (s) { s.classList.add('in'); });
+      }
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        document.querySelectorAll('.btn-primary').forEach(function (btn) {
+          btn.addEventListener('pointermove', function (e) {
+            var r = btn.getBoundingClientRect();
+            var x = e.clientX - r.left - r.width / 2;
+            var y = e.clientY - r.top - r.height / 2;
+            btn.style.transform = 'translate(' + (x * 0.08) + 'px, ' + (y * 0.12) + 'px)';
+          });
+          btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
+        });
+      }
+
+      var form = document.getElementById('founding-form');
+      var success = document.getElementById('form-success');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var email = document.getElementById('email').value.trim();
+          if (!email || email.indexOf('@') < 0) {
+            document.getElementById('email').focus();
+            return;
+          }
+          var door = (formDoor && formDoor.value) || 'dating';
+          try {
+            var list = JSON.parse(localStorage.getItem('cinder_founders') || '[]');
+            list.push({ email: email, door: door, at: new Date().toISOString() });
+            localStorage.setItem('cinder_founders', JSON.stringify(list));
+          } catch (err) {}
+          if (success) success.classList.add('show');
+          var subject = encodeURIComponent('Cinder founding access');
+          var body = encodeURIComponent('Please add me to Cinder founding access.\n\nEmail: ' + email + '\nDoor: ' + door + '\n\nI understand founding members get priority in the first render queue and founding price locked for life.');
+          window.location.href = 'mailto:aldrick@laudatedominum.miami?subject=' + subject + '&body=' + body;
+        });
+      }
+    })();
+  </script>
+</Base>
