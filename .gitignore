@@ -5,3 +5,8 @@ node_modules
 deploy-files.json
 deploy-dist.json
 .DS_Store
+deploy-*.json
+deploy-files.json
+deploy-dist.json
+deploy-mcp.json
+deploy-slim.json
