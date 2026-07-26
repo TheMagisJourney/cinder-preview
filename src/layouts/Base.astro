@@ -1,4 +1,4 @@
-﻿---
+---
 import '../styles/global.css';
 
 interface Props {
@@ -21,25 +21,25 @@ const canonical = Astro.url.pathname;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0B0B0C" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/samples/dating-after.jpg" />
+    <meta property="og:image" content={`${import.meta.env.BASE_URL}samples/dating-after.jpg`} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href={canonical} />
   </head>
   <body data-door={door}>
     <header class="site-header">
       <div class="container inner">
-        <a class="logo" href="/">
+        <a class="logo" href={import.meta.env.BASE_URL}>
           <span class="logo-mark" aria-hidden="true"></span>
           Cinder
         </a>
-        <a class="header-cta" href="#founding">Claim founding access</a>
+        <a class="header-cta" href={`${import.meta.env.BASE_URL}#founding`}>Claim founding access</a>
       </div>
     </header>
     <main>

@@ -1,6 +1,8 @@
-﻿/**
+/**
  * Cinder door content + client reflow
  */
+const BASE = import.meta.env.BASE_URL || '/';
+
 export const DOORS = {
   dating: {
     id: 'dating',
@@ -8,8 +10,8 @@ export const DOORS = {
     promise: "Look like the person they're hoping to meet.",
     sub: 'Real photos of you, at your most magnetic — still recognizably you.',
     cta: 'Claim founding access',
-    after: '/samples/dating-after.jpg',
-    before: '/samples/dating-before.jpg',
+    after: BASE + 'samples/dating-after.jpg',
+    before: BASE + 'samples/dating-before.jpg',
     ethics: true,
   },
   career: {
@@ -18,8 +20,8 @@ export const DOORS = {
     promise: 'The photo that gets you in the room.',
     sub: 'Studio-grade headshots for LinkedIn and résumés, without the studio.',
     cta: 'Claim founding access',
-    after: '/samples/career-after.jpg',
-    before: '/samples/career-before.jpg',
+    after: BASE + 'samples/career-after.jpg',
+    before: BASE + 'samples/career-before.jpg',
     ethics: false,
   },
   acting: {
@@ -28,8 +30,8 @@ export const DOORS = {
     promise: 'Headshots that book the audition.',
     sub: 'Casting-ready framing — natural light, neutral ground, real range.',
     cta: 'Get priority access',
-    after: '/samples/acting-after.jpg',
-    before: '/samples/acting-before.jpg',
+    after: BASE + 'samples/acting-after.jpg',
+    before: BASE + 'samples/acting-before.jpg',
     ethics: false,
   },
   portfolio: {
@@ -38,8 +40,8 @@ export const DOORS = {
     promise: 'Work that looks as good as it is.',
     sub: 'Consistent editorial grade across a full set.',
     cta: 'Get priority access',
-    after: '/samples/portfolio-after.jpg',
-    before: '/samples/portfolio-before.jpg',
+    after: BASE + 'samples/portfolio-after.jpg',
+    before: BASE + 'samples/portfolio-before.jpg',
     ethics: false,
   },
 };
