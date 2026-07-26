@@ -1,27 +1,30 @@
-# Cinder Preview — Live Deploy
+# Cinder Preview - Live Deploy
 
-## Share this link
+## Primary share link (Vercel)
+
+**https://cinder-preview-orpin.vercel.app/**
+
+### Door deep links
+- Home/Dating: https://cinder-preview-orpin.vercel.app/
+- Dating: https://cinder-preview-orpin.vercel.app/dating/
+- Career: https://cinder-preview-orpin.vercel.app/career/
+- Acting: https://cinder-preview-orpin.vercel.app/acting/
+- Portfolio: https://cinder-preview-orpin.vercel.app/portfolio/
+
+## GitHub Pages (also fixed)
 
 **https://themagisjourney.github.io/cinder-preview/**
 
-### Deep links (by door)
-- Dating: https://themagisjourney.github.io/cinder-preview/dating/
-- Career: https://themagisjourney.github.io/cinder-preview/career/
-- Acting: https://themagisjourney.github.io/cinder-preview/acting/
-- Portfolio: https://themagisjourney.github.io/cinder-preview/portfolio/
+Build with: `BASE_PATH=/cinder-preview/ SITE_URL=https://themagisjourney.github.io npm run build`
 
-## Source
-- Local: `E:\OneDrive\Github\cinder-site`
-- GitHub: https://github.com/TheMagisJourney/cinder-preview
+## QA (2026-07-26)
+Playwright desktop + mobile on all 5 routes:
+- 0 broken images
+- 0 mojibake symbols
+- 9/9 images loaded per page
+- Hero uses side-by-side before/after with object-position center 18% (faces framed)
 
-## What shipped
-- Dark editorial landing page (hero, four doors, credibility, founding stories, founding CTA)
-- Sample before/after photography (SAMPLE-labeled)
-- Honest founding capture (mailto + localStorage)
-- Hard founding terms: priority queue + locked founding price
-
-## Vercel note
-CLI had no local token this session. GitHub Pages is the live test domain. To add Vercel: `cd cinder-site && npx vercel login && npx vercel --prod --name cinder-preview` (set `base: '/'` in astro.config for root domain).
-
-## Form inbox
-mailto: aldrick@laudatedominum.miami
+## Fixes shipped
+1. Vercel base path was `/cinder-preview/` (GH Pages) - assets 404 on Vercel root. Now base `/` for Vercel.
+2. Double-encoded UTF-8 (em dash/arrows) replaced with ASCII-safe punctuation and HTML entities.
+3. Hero no longer full-bleed single crop of portrait bottoms - side-by-side before|after with face-priority object-position.

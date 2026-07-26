@@ -1,0 +1,122 @@
+[
+  {
+    "page": "home",
+    "vp": "desktop",
+    "status": 200,
+    "title": "Cinder - Dating",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-desktop.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "dating",
+    "vp": "desktop",
+    "status": 200,
+    "title": "Cinder - Dating",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-desktop.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "career",
+    "vp": "desktop",
+    "status": 200,
+    "title": "Cinder - Career",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-desktop.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "acting",
+    "vp": "desktop",
+    "status": 200,
+    "title": "Cinder - Acting",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-desktop.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "portfolio",
+    "vp": "desktop",
+    "status": 200,
+    "title": "Cinder - Portfolio",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-desktop.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "home",
+    "vp": "mobile",
+    "status": 200,
+    "title": "Cinder - Dating",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\home-mobile.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "dating",
+    "vp": "mobile",
+    "status": 200,
+    "title": "Cinder - Dating",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\dating-mobile.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "career",
+    "vp": "mobile",
+    "status": 200,
+    "title": "Cinder - Career",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\career-mobile.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "acting",
+    "vp": "mobile",
+    "status": 200,
+    "title": "Cinder - Acting",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\acting-mobile.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  },
+  {
+    "page": "portfolio",
+    "vp": "mobile",
+    "status": 200,
+    "title": "Cinder - Portfolio",
+    "brokenImages": 0,
+    "brokenList": [],
+    "badSymbols": 0,
+    "screenshot": "E:\\OneDrive\\Github\\cinder-site\\qa\\portfolio-mobile.png",
+    "imgCount": 9,
+    "facesLoaded": 9
+  }
+]
